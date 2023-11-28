@@ -1,4 +1,4 @@
-chmod_map={
+chmod_map_int={
     0:"---",
     1:"--x",
     2:"-w-",
@@ -15,10 +15,10 @@ def int_to_chmod(x:int):
     l = [u,g,o]
     s=""
     for i in l:
-        if i in chmod_map.keys():
-                s+=chmod_map[i]
+        if i in chmod_map_int.keys():
+                s+=chmod_map_int[i]
         else:
             print("Incorrect value")
     return s
    
-print(int_to_chmod(170))
+print(int_to_chmod(190))
