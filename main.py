@@ -8,7 +8,18 @@ chmod_map_int={
     6:"rw-",
     7:"rwx"
 }
-def int_to_chmod(x:int):
+
+chmod_map_perm={
+    "---":0,
+    "--x":1,
+    "-w-":2,
+    "-wx":3,
+    "r--":4,
+    "r-x":5,
+    "rw-":6,
+    "rwx":7
+}
+def int_to_perm(x:int):
     o = x%10
     g = int((x/10)%10)
     u = int((x/100)%10)
@@ -21,4 +32,23 @@ def int_to_chmod(x:int):
             print("Incorrect value")
     return s
    
-print(int_to_chmod(190))
+def perm_to_int(x:str):
+    if len(x)==0:
+        print("Empty string")
+        return ""
+    if len(x)%9!=0 and len(x)%6!=0 and len(x)%3!=0:
+        print("Incorrect length")
+        return ""
+    u = x[:3]
+    g = x[3:6]
+    o = x[6:9]
+    l =[u,g,o]
+    s=""
+    for i in l:
+        if i in chmod_map_perm.keys():
+            s+=f'{chmod_map_perm[i]}'
+        else:
+            if i !="":
+                print(f"{i}: Incorrect format (has to be in this format - rwx)")
+    return int(s)
+
