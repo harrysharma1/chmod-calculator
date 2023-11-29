@@ -1,7 +1,10 @@
+import re
+
 class ChmodConversion():
     
     def __init__(self) -> None:
-        pass
+        self.regex=r"(---)|(--x)|(-w-)|(-wx)|(r--)|(r-x)|(rw-)|(rwx)"
+
     
     def int_to_perm(self,x:int):
         chmod_map_int={
@@ -38,11 +41,9 @@ class ChmodConversion():
             "rwx":7
         }
         if len(x)==0:
-            print("Empty string")
-            return ""
+            return("Empty string")
         if len(x)%9!=0 and len(x)%6!=0 and len(x)%3!=0:
-            print("Incorrect length")
-            return ""
+            return("Incorrect length")
         u = x[:3]
         g = x[3:6]
         o = x[6:9]
