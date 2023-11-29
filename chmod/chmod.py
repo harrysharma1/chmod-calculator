@@ -56,7 +56,6 @@ class ChmodConversion():
                     print(f"{i}: Incorrect format (has to be in this format - rwx)")
         return int(s)       
     
-    
 
 
 
