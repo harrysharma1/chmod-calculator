@@ -3,7 +3,7 @@ import re
 class ChmodConversion():
     
     def __init__(self) -> None:
-        self.regex=r"(---)|(--x)|(-w-)|(-wx)|(r--)|(r-x)|(rw-)|(rwx)"
+        self.regex=r"((---)|(--x)|(-w-)|(-wx)|(r--)|(r-x)|(rw-)|(rwx)){3}"
 
     
     def int_to_perm(self,x:int):
