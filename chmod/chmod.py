@@ -25,7 +25,7 @@ class ChmodConversion():
             if i in chmod_map_int.keys():
                     s+=chmod_map_int[i]
             else:
-                print("Incorrect value")
+                return ("Incorrect value")
         return s 
     
     def perm_to_int(self, x:str):
