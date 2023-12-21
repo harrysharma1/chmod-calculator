@@ -54,8 +54,12 @@ class ChmodConversion():
                 s+=f'{chmod_map_perm[i]}'
             else:
                 if i !="":
-                    print(f"{i}: Incorrect format (has to be in this format - rwx)")
-        return int(s)       
+                    if re.match(regex,i) is None:
+                        print (f"{i}: Incorrect format (has to be in this format - rwx)")
+        if len(s)<3:
+            return ""
+        else:
+            return s       
     
 
 
