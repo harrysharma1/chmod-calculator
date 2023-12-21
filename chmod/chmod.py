@@ -49,23 +49,18 @@ class ChmodConversion():
         o = x[6:9]
         l =[u,g,o]
         s=""
+        error = []
         for i in l:
             if i in chmod_map_perm.keys():
                 s+=f'{chmod_map_perm[i]}'
             else:
                 if i !="":
                     if re.match(regex,i) is None:
-                        print (f"{i}: Incorrect format (has to be in this format - rwx)")
+                        error.append(f"{i}: Incorrect format (has to be in this format - rwx)")
         if len(s)<3:
-            return ""
+            error_string =""
+            for i in error:
+                error_string+= f'{i}\n'
+            return error_string
         else:
             return s       
-    
-
-
-
-
-
-   
-
-
