@@ -7,7 +7,7 @@ This is my first module so it will have some bugs.
 
 ## How to use
 
-After running `pip install chmod` you can use it in Python
+After running `pip install chmod`, you can use it in Python
 
 ```python
 import chmod
